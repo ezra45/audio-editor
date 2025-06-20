@@ -24,14 +24,10 @@ model = whisper.load_model("base")
 
 @app.post("/upload")
 async def upload_audio(file: UploadFile = File(...)):
-    print("yas")
     file_path = os.path.join(UPLOAD_DIR, file.filename)
-    print("yas1")
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    print("yas2")
     result = model.transcribe(file_path)
-    print("yas3")
     return {
         "filename": file.filename,  
         "transcription":result["text"]
