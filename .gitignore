@@ -4,5 +4,5 @@ venv
 __pycache__/
 *.py[cod]
 
-uploads/
-!uploads/.gitkeep
+backend/uploads/
+!backend/uploads/.gitkeep
